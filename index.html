@@ -22,70 +22,73 @@
             background: #222;
         }
 
-        .instagram-icon {
+        .instagram-icon, .twitter-icon, .linkedin-icon, .pinterest-icon, .chess-icon, .github-icon {
             font-size: 30px;
             margin: 10px;
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .instagram-icon:hover {
-            color: #FF007D;
+        .instagram-icon:hover { color: #FF007D; }
+        .twitter-icon:hover { color: #1DA1F2; }
+        .linkedin-icon:hover { color: #0077B5; }
+        .pinterest-icon:hover { color: #D82E2E; }
+        .chess-icon:hover { color: #00FF00; }
+        .github-icon:hover { color: #171515; }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
         }
 
-        .twitter-icon {
-            font-size: 30px;
-            margin: 10px;
+        .project-card {
+            background: #1c1c1c;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .project-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-top: 10px;
+        }
+
+        .project-card h3 {
+            margin: 12px 0 6px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            background: #333;
+            color: #fff;
+            border-radius: 6px;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: background 0.3s;
         }
 
-        .twitter-icon:hover {
-            color: #1DA1F2;
-        }
-
-        .linkedin-icon {
-            font-size: 30px;
-            margin: 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .linkedin-icon:hover {
-            color: #0077B5;
-        }
-
-        .pinterest-icon {
-            font-size: 30px;
-            margin: 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .pinterest-icon:hover {
-            color: #D82E2E;
-        }
-
-        .chess-icon {
-            font-size: 30px;
-            margin: 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .chess-icon:hover {
-            color: #00FF00;
-        }
-
-        .github-icon {
-            font-size: 30px;
-            margin: 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .github-icon:hover {
-            color: #171515;
+        .btn:hover {
+            background: #555;
         }
     </style>
 </head>
@@ -107,10 +110,6 @@
         <i class="fa fa-code w3-xxlarge"></i>
         <p>PROJECTS</p>
     </a>
-    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-        <i class="fa fa-eye w3-xxlarge"></i>
-        <p>PHOTOS</p>
-    </a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
         <i class="fa fa-envelope w3-xxlarge"></i>
         <p>CONTACT</p>
@@ -122,22 +121,22 @@
         <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
         <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
         <a href="#projects" class="w3-bar-item w3-button" style="width:25% !important">PROJECTS</a>
-        <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
         <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
     </div>
 </div>
 
 <div class="w3-padding-large" id="main">
+
     <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
         <h1 class="w3-jumbo"><span class="w3-hide-small"></span>I'm Satyoday.</h1>
-        <p>Web Developer, Designer and Photographer.</p>
+        <p>Web Developer and Designer.</p>
         <img src="https://i.pinimg.com/originals/82/64/db/8264db9a1be20bcc28b96265f81cb054.jpg"
              alt="boy" class="w3-image" width="992" height="1108">
     </header>
 
     <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
         <h2 class="w3-text-light-grey">Satyoday Sharma</h2>
-        <hr style="width:200px" class="w3-opacity">
+        <hr style="width:290px" class="w3-opacity">
         <p>Ahoy there, I'm Satyoday Sharma, your friendly neighborhood Web Developer and Designer navigating the digital seas.
         Imagine coding as a treasure hunt, and design as my trusty map – together, they lead to online riches. When I'm not
         deciphering code conundrums, I'm shooting hoops on the basketball court, pretending I'm in the NBA (spoiler: I'm not).
@@ -147,25 +146,35 @@
 
     <div class="w3-padding-64 w3-content" id="projects">
         <h2 class="w3-text-light-grey">Projects</h2>
-    </div>
-
-    <div class="w3-padding-64 w3-content" id="photos">
-        <h2 class="w3-text-light-grey">Photos</h2>
-        <hr style="width:200px" class="w3-opacity">
-        <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-half">
-                <img src="https://i.pinimg.com/originals/cb/f7/b9/cbf7b9d7b62030ed90764a078479446e.jpg" style="width:100%">
-                <img src="https://i.pinimg.com/originals/91/88/5d/91885d97c6685489015470ef034ef5f2.jpg" style="width:100%">
-                <img src="https://i.pinimg.com/originals/b5/f0/f0/b5f0f0b481c6220185af3e297598eced.jpg" style="width:100%">
+        <hr style="width:150px" class="w3-opacity">
+    
+        <div class="projects-grid">
+            <div class="project-card">
+                <a href="https://satyodaysharma.github.io" target="_blank">
+                    <img src="assets/portfolio.png" alt="Portfolio Website">
+                </a>
+                <h3>Portfolio Website</h3>
+                <p>A personal site built with HTML, CSS, and W3.CSS.</p>
+                <a href="https://satyodaysharma.github.io" class="btn">View Project</a>
             </div>
-            <div class="w3-half">
-                <img src="https://i.pinimg.com/originals/6c/87/87/6c8787795fca6e5ec5332c83c0ee117e.jpg" style="width:100%">
-                <img src="https://i.pinimg.com/originals/5a/1f/d8/5a1fd896da69b61f546ee41c10c6d6b3.jpg" style="width:100%">
-                <img src="https://i.pinimg.com/originals/36/db/47/36db472440f56fe009dacf20efa339ca.jpg" style="width:100%">
-                <img src="https://i.pinimg.com/originals/78/37/91/7837919d149f064bb42856aeb8c5954b.jpg" style="width:100%">
+            
+    
+            <div class="project-card">
+                <img src="assets/weather.png" alt="Weather App">
+                <h3>Weather App</h3>
+                <p>A simple app that shows live weather using an API.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+    
+            <div class="project-card">
+                <img src="assets/to-do.png" alt="Todo App">
+                <h3>Todo App</h3>
+                <p>Task manager built with JavaScript and LocalStorage.</p>
+                <a href="#" class="btn">View Project</a>
             </div>
         </div>
     </div>
+    
 
     <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
         <h2 class="w3-text-light-grey">Contact Me</h2>
