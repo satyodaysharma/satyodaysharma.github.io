@@ -1,40 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
     <title>Satyoday Sharma</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio of Satyoday Sharma — Web Developer, Designer, AI Enthusiast, Basketball Gold Medalist, and Chess Player." />
+
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
-        body, h1, h2, h3, h4, h5, h6 {
-            font-family: "Montserrat", sans-serif;
+        :root {
+            --bg: #000;
+            --panel: #1c1c1c;
+            --muted: #aaa;
+            --accent: #FF007D;
+
+            --chess-hover: #69923e;
         }
 
-        .w3-row-padding img {
-            margin-bottom: 12px;
+        html { scroll-behavior: smooth; }
+
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif;
+            background: var(--bg);
+            color: #eaeaea;
+            margin: 0;
         }
+
 
         .w3-sidebar {
             width: 120px;
-            background: #222;
+            background: #000; /* keep sidebar black */
+            border-right: 1px solid rgba(255,255,255,0.03);
+        }
+        .w3-sidebar img {
+            display: block;
+            margin: 18px auto;
+            border-radius: 6px;
+            max-width: 90%;
+            opacity: 0.95;
         }
 
-        .instagram-icon, .twitter-icon, .linkedin-icon, .pinterest-icon, .chess-icon, .github-icon {
+
+        @media (min-width: 761px) { #main { margin-left: 120px; } }
+        @media (max-width: 760px) { .w3-sidebar { width: 0; } #main { margin-left: 0; } }
+
+
+        .w3-sidebar a .fa {
             font-size: 30px;
-            margin: 10px;
-            text-decoration: none;
-            transition: color 0.3s;
+            color: #fff; /* icons remain white */
+            transition: color 0.25s ease;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .w3-sidebar a .w3-small {
+            color: #ddd;
+            transition: color 0.25s ease;
         }
 
-        .instagram-icon:hover { color: #FF007D; }
-        .twitter-icon:hover { color: #1DA1F2; }
-        .linkedin-icon:hover { color: #0077B5; }
-        .pinterest-icon:hover { color: #D82E2E; }
-        .chess-icon:hover { color: #00FF00; }
-        .github-icon:hover { color: #171515; }
+
+        .w3-sidebar a.active .fa { color: #fff !important; }
+        .w3-sidebar a.active .w3-small { color: #fff !important; }
+
+
+        .social-icons { display:flex; align-items:center; gap:20px; margin-top:18px; } /* increased gap -> 20px */
+        .instagram-icon, .twitter-icon, .linkedin-icon, .pinterest-icon, .chess-icon, .github-icon {
+            font-size: 28px;
+            margin: 0;
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.22s ease, transform 0.18s ease;
+            display: inline-block;
+            line-height: 1;
+        }
+        .instagram-icon:hover { color: #FF007D; transform: translateY(-4px); }
+        .twitter-icon:hover { color: #1DA1F2; transform: translateY(-4px); }
+        .linkedin-icon:hover { color: #0077B5; transform: translateY(-4px); }
+        .pinterest-icon:hover { color: #D82E2E; transform: translateY(-4px); }
+        .chess-icon:hover { color: var(--chess-hover); transform: translateY(-4px); } /* chess now uses Chess.com green */
+        .github-icon:hover { color: #171515; transform: translateY(-4px); }
+
+
+        .social-icons i.fa { font-size: 28px; color: inherit; }
 
 
         .projects-grid {
@@ -45,36 +95,21 @@
         }
 
         .project-card {
-            background: #1c1c1c;
+            background: var(--panel);
             border-radius: 12px;
             overflow: hidden;
             text-align: center;
-            padding: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 18px;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+            box-shadow: rgba(255,255,255,0.02) 0 4px 20px;
         }
-
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+            box-shadow: rgba(0,0,0,0.5) 0px 12px 30px;
         }
-
-        .project-card img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            margin-top: 10px;
-        }
-
-        .project-card h3 {
-            margin: 12px 0 6px;
-            font-size: 1.2rem;
-            color: #fff;
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            color: #aaa;
-        }
+        .project-card img { width: 100px; height: 100px; object-fit: contain; margin-top: 6px; }
+        .project-card h3 { margin: 12px 0 6px; font-size: 1.15rem; color: #fff; }
+        .project-card p { color: var(--muted); font-size: 0.95rem; }
 
         .btn {
             display: inline-block;
@@ -84,138 +119,244 @@
             color: #fff;
             border-radius: 6px;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: background 0.18s;
         }
+        .btn:hover { background: #555; }
 
-        .btn:hover {
-            background: #555;
-        }
+
+        .contact-row { display:flex; align-items:center; gap:18px; margin:18px 0; max-width:760px; }
+        .contact-row i { font-size:34px; width:46px; text-align:center; color:#fff; }
+        .contact-text { color: var(--muted); font-size:1.05rem; }
+
+
+        footer { position: relative; bottom: 0; width: 100%; text-align: center; padding-top: 22px; padding-bottom: 42px; color: var(--muted); }
+
+
+        header .w3-image { max-width: 300px; border-radius: 8px; margin-top: 12px; }
+
+
+        .chess-svg { width:28px; height:28px; vertical-align:middle; fill: #bbb; transition: fill 0.22s ease, transform 0.18s ease; }
+        .chess-icon:hover .chess-svg { fill: var(--chess-hover); transform: translateY(-4px); }
     </style>
 </head>
-
 <body class="w3-black">
 
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-    <img src="https://i.pinimg.com/originals/82/64/db/8264db9a1be20bcc28b96265f81cb054.jpg"
-         style="width:100%">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-        <i class="fa fa-home w3-xxlarge"></i>
-        <p>HOME</p>
+
+<nav class="w3-sidebar w3-bar-block w3-hide-small w3-center" aria-label="Main navigation">
+    <img src="https://i.pinimg.com/originals/82/64/db/8264db9a1be20bcc28b96265f81cb054.jpg" alt="Satyoday" />
+
+    <a href="#home" class="w3-bar-item w3-button" title="Home">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <div class="w3-small">HOME</div>
     </a>
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-        <i class="fa fa-user w3-xxlarge"></i>
-        <p>ABOUT</p>
+
+    <a href="#about" class="w3-bar-item w3-button" title="About">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <div class="w3-small">ABOUT</div>
     </a>
-    <a href="#projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-        <i class="fa fa-code w3-xxlarge"></i>
-        <p>PROJECTS</p>
+
+    <a href="#projects" class="w3-bar-item w3-button" title="Projects">
+        <i class="fa fa-code" aria-hidden="true"></i>
+        <div class="w3-small">PROJECTS</div>
     </a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-        <i class="fa fa-envelope w3-xxlarge"></i>
-        <p>CONTACT</p>
+
+    <a href="#contact" class="w3-bar-item w3-button" title="Contact">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <div class="w3-small">CONTACT</div>
     </a>
 </nav>
 
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar" role="navigation">
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+        <a href="#home" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
         <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
         <a href="#projects" class="w3-bar-item w3-button" style="width:25% !important">PROJECTS</a>
         <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
     </div>
 </div>
 
-<div class="w3-padding-large" id="main">
 
-    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-        <h1 class="w3-jumbo"><span class="w3-hide-small"></span>I'm Satyoday.</h1>
+<div id="main" class="w3-padding-large">
+
+
+    <header id="home" class="w3-container w3-padding-32 w3-center">
+        <h1 class="w3-jumbo">I'm Satyoday.</h1>
         <p>Web Developer and Designer.</p>
-        <img src="https://i.pinimg.com/originals/82/64/db/8264db9a1be20bcc28b96265f81cb054.jpg"
-             alt="boy" class="w3-image" width="992" height="1108">
+        <img src="https://i.pinimg.com/originals/82/64/db/8264db9a1be20bcc28b96265f81cb054.jpg" alt="Satyoday portrait" class="w3-image" width="300" height="333" />
     </header>
 
-    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-        <h2 class="w3-text-light-grey">Satyoday Sharma</h2>
-        <hr style="width:290px" class="w3-opacity">
-        <p>Hi — I’m Satyoday Sharma, a web developer and designer who loves turning ideas into clean, usable websites. I treat coding like a treasure hunt and design like a map: together they guide me to elegant solutions. I’m deeply interested in Artificial Intelligence and currently learning Machine Learning, and practical AI techniques — building small projects that apply models to real problems. My goal is to become an AI engineer. When I'm not deciphering code conundrums, I'm shooting hoops on the basketball court, pretending I'm in the NBA (spoiler: I'm not).
-        Oh, and did I mention? I'm a huge chess enthusiast. For me, chess is not just a game—it's a battlefield where strategy
-        and creativity come alive. It's amazing how a single move can turn the tide, both on the board and in life.</p>
-    </div>
+
+    <section id="about" class="w3-content w3-justify w3-text-grey w3-padding-64" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="w3-text-light-grey">Satyoday Sharma</h2>
+        <hr style="width:290px" class="w3-opacity" />
+        <p>Hi — I’m Satyoday Sharma, a web developer and designer who loves turning ideas into clean, usable websites. I treat coding like a treasure hunt and design like a map: together they guide me to elegant solutions. I’m deeply interested in Artificial Intelligence and currently learning Machine Learning, and practical AI techniques — building small projects that apply models to real problems. My goal is to become an AI engineer. When I'm not deciphering code conundrums, I'm shooting hoops on the basketball court, pretending I'm in the NBA (spoiler: I'm not). <br><br>
+        Oh, and did I mention? I'm a huge chess enthusiast. For me, chess is not just a game—it's a battlefield where strategy and creativity come alive. It's amazing how a single move can turn the tide, both on the board and in life.</p>
+    </section>
 
 
-    <div class="w3-padding-64 w3-content w3-text-grey" id="achievements">
-        <h2 class="w3-text-light-grey">Achievements</h2>
-        <hr style="width:245px" class="w3-opacity">
-        <ul class="w3-ul w3-large w3-left-align" style="max-width:800px;">
+    <section id="achievements" class="w3-padding-64 w3-content w3-text-grey" aria-labelledby="achievements-heading">
+        <h2 id="achievements-heading" class="w3-text-light-grey">Achievements</h2>
+        <hr style="width:245px" class="w3-opacity" />
+        <ul class="w3-ul w3-large w3-left-align" style="max-width:900px;">
             <li><strong>School National U14 Basketball</strong> — Gold Medalist (representing Chhattisgarh)</li>
             <li><strong>School State U14 Basketball</strong> — Silver Medalist (Raipur)</li>
             <li><strong>Bronze Medalist</strong> — Chess Tournament, BBDU Utkarsh Fest</li>
             <li><strong>Certificates</strong> — AI using Python; Machine Learning</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="w3-padding-64 w3-content" id="projects">
-        <h2 class="w3-text-light-grey">Projects</h2>
-        <hr style="width:150px" class="w3-opacity">
+
+    <section id="projects" class="w3-padding-64 w3-content" aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="w3-text-light-grey">Projects</h2>
+        <hr style="width:150px" class="w3-opacity" />
 
         <div class="projects-grid">
             <div class="project-card">
-                <a href="https://satyodaysharma.github.io" target="_blank">
-                    <img src="assets/portfolio.png" alt="Portfolio Website">
+                <a href="https://satyodaysharma.github.io" target="_blank" rel="noopener noreferrer" aria-label="Open Portfolio in new tab">
+                    <img src="assets/portfolio.png" alt="Portfolio Website thumbnail" />
                 </a>
                 <h3>Portfolio Website</h3>
                 <p>A personal site built with HTML, CSS, and JavaScript.</p>
-                <a href="https://tannutiwari.github.io/portfolio.html/" class="btn">View Project</a>
+                <a href="https://satyodaysharma.github.io" target="_blank" rel="noopener noreferrer" class="btn">View Project</a>
             </div>
 
-
             <div class="project-card">
-                <img src="assets/weather.png" alt="Weather App">
+                <img src="assets/weather.png" alt="Weather App thumbnail" />
                 <h3>Weather App</h3>
                 <p>A simple app that shows live weather using an API.</p>
-                <a href="https://satyodaysharma.github.io/Weatherly/" class="btn">View Project</a>
+                <a href="https://satyodaysharma.github.io/Weatherly/" target="_blank" rel="noopener noreferrer" class="btn">View Project</a>
             </div>
 
             <div class="project-card">
-                <img src="assets/to-do.png" alt="Todo App">
-                <h3>To do App</h3>
+                <img src="assets/to-do.png" alt="Todo App thumbnail" />
+                <h3>To Do App</h3>
                 <p>Task manager built with JavaScript and LocalStorage.</p>
-                <a href="https://satyodaysharma.github.io/ToDo/" class="btn">View Project</a>
+                <a href="https://satyodaysharma.github.io/ToDo/" target="_blank" rel="noopener noreferrer" class="btn">View Project</a>
             </div>
+
             <div class="project-card">
-                <img src="assets/Calculator.png" alt="Universal Calculator">
+                <img src="assets/Calculator.png" alt="Universal Calculator thumbnail" />
                 <h3>Universal Calculator</h3>
                 <p>A sleek, all-in-one web calculator for every computation need.</p>
-                <a href="https://satyodaysharma.github.io/UniversalCalculator/" class="btn">View Project</a>
+                <a href="https://satyodaysharma.github.io/UniversalCalculator/" target="_blank" rel="noopener noreferrer" class="btn">View Project</a>
             </div>
         </div>
-    </div>
+    </section>
 
 
-    <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-        <h2 class="w3-text-light-grey">Contact Me</h2>
-        <hr style="width:200px" class="w3-opacity">
-        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Lucknow, U.P, India</p>
-        <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: 8303179055</p>
-        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> satyodaysharma2006@gmail.com</p>
-        <div class="w3-section">
-            <a href="https://www.instagram.com/maisatyakaudayhoon?igsh=MWIzMWZrZjYyZ2ljdA==" class="instagram-icon"><i class="fa fa-instagram"></i></a>
-            <a href="https://twitter.com/SharmaSatyoday?t=YdGEfwdyNa0fYAL-YcTfnQ&s=09" class="twitter-icon"><i class="fa fa-twitter"></i></a>
-            <a href="https://pin.it/7uY0bY6" class="pinterest-icon"><i class="fa fa-pinterest"></i></a>
-            <a href="https://www.linkedin.com/in/satyoday-sharma-897a66278" class="linkedin-icon"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.chess.com/member/starkhere0" class="chess-icon">&#9817;</a>
-            <a href="https://github.com/satyodaysharma" class="github-icon"><i class="fa fa-github"></i></a>
+    <section id="contact" class="w3-padding-64 w3-content w3-text-grey" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="w3-text-light-grey">Contact Me</h2>
+        <hr style="width:200px" class="w3-opacity" />
+
+        <div class="contact-row">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <div class="contact-text">Lucknow, U.P, India</div>
         </div>
-    </div>
+
+        <div class="contact-row">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <div class="contact-text"><a href="tel:+918303179055" style="color:inherit; text-decoration:none;">+91 8303179055</a></div>
+        </div>
+
+        <div class="contact-row">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <div class="contact-text"><a href="mailto:satyodaysharma2006@gmail.com" style="color:inherit; text-decoration:none;">satyodaysharma2006@gmail.com</a></div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/maisatyakaudayhoon?igsh=MWIzMWZrZjYyZ2ljdA==" class="instagram-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fa fa-instagram"></i>
+            </a>
+
+            <a href="https://twitter.com/SharmaSatyoday?t=YdGEfwdyNa0fYAL-YcTfnQ&s=09" class="twitter-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a href="https://pin.it/7uY0bY6" class="pinterest-icon" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                <i class="fa fa-pinterest"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/satyoday-sharma-897a66278" class="linkedin-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fa fa-linkedin"></i>
+            </a>
+
+
+            <a href="https://www.chess.com/member/starkhere0" class="chess-icon" target="_blank" rel="noopener noreferrer" aria-label="Chess.com">
+                <svg class="chess-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="6" r="2.5" />
+                    <path d="M9.5 9.5c-.6.5-1.5 1.7-1.5 3 0 1.9 2 3.5 5 3.5s5-1.6 5-3.5c0-1.3-.9-2.5-1.5-3" />
+                    <rect x="6" y="17" width="12" height="1.5" rx="0.5" />
+                    <rect x="4" y="18.7" width="16" height="1.6" rx="0.5" />
+                </svg>
+            </a>
+
+            <a href="https://github.com/satyodaysharma" class="github-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fa fa-github"></i>
+            </a>
+        </div>
+    </section>
+
 
     <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <p class="w3-small">Congratulations! You've reached the end of the internet... well, at least this webpage. Now, go conquer the real world!</p>
-    <p class="w3-small" style="text-align:center; margin-top:30px; position:relative; bottom:0; width:100%;">
-        &copy; 2025 Satyoday Sharma. All rights reserved.
-    </p>
-</footer>
-
+        <p class="w3-small">Congratulations! You've reached the end of the internet... well, at least this webpage. Now, go conquer the real world!</p>
+        <p class="w3-small" style="margin-top:16px;">&copy; 2025 Satyoday Sharma. All rights reserved.</p>
+    </footer>
 </div>
+
+
+<script>
+  (function () {
+    const sectionIds = ['home', 'about', 'achievements', 'projects', 'contact'];
+    const sidebarLinks = document.querySelectorAll('.w3-sidebar a');
+    const topLinks = document.querySelectorAll('#myNavbar a');
+
+    function clearActive() {
+      sidebarLinks.forEach(a => a.classList.remove('active'));
+      topLinks.forEach(a => a.classList.remove('active'));
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          clearActive();
+          document.querySelectorAll(`.w3-sidebar a[href="#${id}"], #myNavbar a[href="#${id}"]`).forEach(el => {
+            el.classList.add('active');
+          });
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.45
+    });
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    document.querySelectorAll('.w3-sidebar a, #myNavbar a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        clearActive();
+        a.classList.add('active');
+      });
+    });
+
+    window.addEventListener('load', () => {
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.25) {
+          document.querySelectorAll(`.w3-sidebar a[href="#${id}"], #myNavbar a[href="#${id}"]`).forEach(elm => elm.classList.add('active'));
+          break;
+        }
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
